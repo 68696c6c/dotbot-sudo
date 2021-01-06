@@ -61,5 +61,5 @@ class Sudo(dotbot.Plugin):
 
     def _write_conf_file(self, conf_file, data):
         self._delete_conf_file(conf_file)
-        with open(conf_file, 'w', encoding='utf-8') as jfile:
+        with open(conf_file, 'w') as jfile:
             json.dump(data, jfile, ensure_ascii=False)
