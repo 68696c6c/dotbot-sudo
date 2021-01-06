@@ -9,7 +9,7 @@ Plugin for [Dotbot][dotbot_repo], that adds ```sudo``` directive, which allows y
 
 1. Simply add this repo as a submodule of your dotfiles repository:
 ```
-git submodule add https://github.com/DrDynamic/dotbot-sudo.git
+git submodule add https://github.com/68696c6c/dotbot-sudo.git
 ```
 
 2. Pass the path to the sudo.py file with corresponding flag to your [Dotbot][dotbot_repo] script:
@@ -36,6 +36,13 @@ git submodule add https://github.com/DrDynamic/dotbot-sudo.git
 ```
 
 ### Execution
+Edit your `install` script to add the plugin:
 ```bash
-"~/.dotfiles/bin/dotbot" -d "~/.dotfiles" -c "~/.dotfiles/packages.yaml" -p "~/.dotfiles/plugins/dotbot-sudo/sudo.py"
+"${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" -p "${BASEDIR}/dotbot-sudo/sudo.py" "${@}"
 ```
+
+Using absolute paths instead of vars would look something like this:
+```bash
+"~/.dotfiles/bin/dotbot" -d "~/.dotfiles" -c "~/.dotfiles/install.conf.yaml" -p "~/.dotfiles/dotbot-sudo/sudo.py" "${@}"
+```
+
